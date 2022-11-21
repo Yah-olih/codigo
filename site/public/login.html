@@ -83,17 +83,17 @@
     }
     else if(senhaVar == "" || senhaVar.length <= 3){
       alert(`ìnforme uma senha valida`)
+      return false;
     }
-    else 
-    {
-      window.location = "dashboard.html";
-    }
+   // else 
+   // {
+   //   window.location = "dashboard.html";
+   // }
     
-    
-        console.log("FORM LOGIN: ", emailVar);
+   console.log("FORM LOGIN: ", emailVar);
         console.log("FORM SENHA: ", senhaVar);
 
-        fetch("/usuario/autenticar", {
+        fetch("/usuarios/autenticar", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -117,7 +117,7 @@
                     sessionStorage.ID_USUARIO = json.id;
 
                     setTimeout(function () {
-                        window.location = "dashboard.html";
+                        window.location = "./historia.html";
                     }, 1000); // apenas para exibir o loading
 
                 });
@@ -126,10 +126,10 @@
 
                 console.log("Houve um erro ao tentar realizar o login!");
 
-                //resposta.text().then(texto => {
-                //    console.error(texto);
-                //    finalizarAguardar(texto);
-                //});
+                resposta.text().then(texto => {
+                    console.error(texto);
+                    finalizarAguardar(texto);
+                });
             }
 
         }).catch(function (erro) {
@@ -139,8 +139,7 @@
         return false;
     }
 
-
-    //function sumirMensagem() {
-      //  cardErro.style.display = "none"
-    //}
+    function sumirMensagem() {
+        cardErro.style.display = "none"
+    }
 </script>

@@ -111,17 +111,26 @@ section{
     align-items: center;
     justify-items: center;
 } */
-.fotoM{
-    background-color: aqua;
+.fotoM
+{
+    background-color: rgba(224, 253, 253, 0.222);
     width: 80%;
-    height: 90%;
+    height: 91%;
     margin: 15px 0px 15px 30px;
+    
 }
-.texto{
+.fotoM img{
+    width: 64%;
+    margin: 0px 0px 0px 80px;
+}
+
+.texto
+{
     margin: 0px 41px 0px 0px;
     width: 55%;
     height: 60%;
 }
+
 .texto p {
     color: white;
     font-size: 25px;
