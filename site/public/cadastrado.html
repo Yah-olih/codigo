@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>cadastro</title>
+    <link rel="stylesheet" href="css/gerais.css">
+    <link rel="stylesheet" href="css/cadastro.css">
+</head>
+<body>
+   <!-- HEADER -->
+   <header>
+    <div class="container">
+      <div class="titulo">
+        <h1><a href="index.html">Criminal Minds</a></h1>
+      </div>
+
+      <div class="navegacao">
+        <ul>
+            <li><a href="index.html">Inicial</a></li>
+            <li class="agora"><a href="login.html">Login</a></li>
+            <li><a href="cadastrado.html" style="display: none;">Cadastre-se</a></li>
+        </ul>
+      </div>
+    </div>
+</header>
+
+      <!-- MAIN/CONTEÚDO DA PÁGINA -->
+<main>
+    <section class="bannerLogin">
+        <div class="container-formulario">
+            <div class="caixa-formulario">
+                <h2>Faça seu cadastro!</h2>
+                <div class="campo">
+                    <label for="nome">Nome completo</label>
+                    <input type="text" name="nome" id="input_nome"
+                    placeholder="Nome Completo">
+                </div>
+                <div class="campo">
+                    <label for="email">Email</label>
+                    <input type="email" name="email" id="input_email" 
+                   placeholder="email@email.com">
+                </div>
+                <div class="campo">
+                    <label for="senha">Senha</label>
+                    <input type="password" name="senha" id="input_senha"
+                    placeholder="*******">
+                </div>
+                <div class="campo">
+                    <label for="senhaConfirmacao">Repita sua senha</label>
+                    <input type="password" name="senha_Confirmacao" id="input_senha_confirmacao"
+                    placeholder="*******">
+                </div>
+                <a class= "button" onclick="cadastrar()">Cadastra</a>
+                
+            </div>
+
+        </div>
+    </section>
+</main>
+    <!-- FOOTER/RODAPÉ -->
+    <footer>
+        <div class="rodape">
+          <p>Criminal Minds&copy;</p>
+        </div>
+      </footer>
+</body>
+</html>
+
+<script>
+    function cadastrar(){
+        //aguardar();
+        const nomeVar = input_nome.value;
+        const emailVar = input_email.value;
+        const senhaVar = input_senha.value;
+        const ConfirmacaoSenha = input_senha_confirmacao.value;
+
+        if(emailVar == "" || !emailVar.includes("@") || !emailVar.endsWith(".com")){
+            alert(`informe um email valido`);
+
+            //finalizarAguardar();
+            //return false;
+
+        }else if((senhaVar != ConfirmacaoSenha) || senhaVar == "" || ConfirmacaoSenha == ""){
+           // cardErro.style.display = "block"
+            alert(`informe uma senha valida`);
+
+            //finalizarAguardar();
+            //return false;
+
+        }else if(senhaVar.length <=7 || ConfirmacaoSenha.length <=7 ){
+            //cardErro.style.display = "block"
+            alert(`informe uma snha que contenha no minimo 8 caracteres`);
+
+            //finalizarAguardar();
+            //return false;
+
+        }else{
+            //setInterval(sumirMensagem, 5000)
+            window.location.href = "login.html"
+        }
+        // Enviando o valor da nova input
+        fetch("/usuarios/cadastrar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                // crie um atributo que recebe o valor recuperado aqui
+                // Agora vá para o arquivo routes/usuario.js
+                nomeServer: nomeVar,
+                emailServer: emailVar,
+                senhaServer: senhaVar
+            })
+        }).then(function (resposta) {
+
+            console.log("resposta: ", resposta);
+
+            if (resposta.ok) {
+                cardErro.style.display = "block";
+
+                mensagem_erro.innerHTML = "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
+
+                setTimeout(() => {
+                    window.location = "login.html";
+                }, "2000")
+                
+                limparFormulario();
+                finalizarAguardar();
+            } else {
+                throw ("Houve um erro ao tentar realizar o cadastro!");
+            }
+        }).catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+            finalizarAguardar();
+        });
+
+        return false;
+    }
+        
+        function sumirMensagem() {
+            cardErro.style.display = "none"
+        }
+</script>

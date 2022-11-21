@@ -1,0 +1,96 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html{
+    height: 100vh;
+    scroll-behavior: smooth;
+}
+body {
+    font-family: 'Ubuntu Mono', monospace;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  header{
+    display:flex;
+    flex-direction: row;
+    height: 7%;
+    width: 100%;
+    background-color: rgb(0, 0, 0);
+    align-content: center;
+    justify-content: space-evenly;
+    text-align: center;
+    border-bottom: 2px solid #fff;
+    box-shadow: 2px 2px  #ffffff;
+    position: fixed;
+}
+.titulo {
+    padding: 5px 0;
+    background-size: cover;
+    background-position: center;
+    cursor: pointer;
+    
+}
+h1 a{
+    color: rgb(255, 0, 0);
+    font-size: 40px; 
+    text-decoration: none;
+   }
+.container {
+    display: flex;
+    width: 80%;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.navegacao a {
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+}
+
+.navegacao ul {
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    width: 30vw;
+}
+
+.navegacao ul li {
+    cursor: pointer;
+    font-size: 17px;
+}
+
+.navegacao ul li:hover{
+    text-shadow: 3px 3px 22px #ff0000;
+}
+
+body{
+background-color: black;
+}
+/* FOOTER AQUI */
+footer {
+    /* box-decoration-break: 2px 2px  #096fff; */
+    display: flex;
+    padding: 5vh;
+    margin-top: auto;
+    width: 100%;
+    background-color: rgb(13, 13, 13);
+}
+
+footer .rodape {
+    display: flex;
+    width: 80%;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+footer p {
+    color: rgb(255, 0, 0);
+}

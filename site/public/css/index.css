@@ -1,0 +1,128 @@
+/* main{
+    background-color: aqua;
+    width: 100%;
+    height: 1000000000vh;
+} */
+section{
+    width: 100%;
+    background-color: rgb(37, 37, 37);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-items: center;
+}
+
+.caixa{
+    background-color: rgb(10, 10, 10);
+    width: 95%;
+    height: 80vh;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-items: center;
+}
+.combo-foto{
+    /* background-color: azure; */
+    width: 50%;
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-items: center;
+}
+.foto{
+    /* background-color: rgba(0, 255, 255, 0.582); */
+    /* background-image: 'https://mixdeseries.com.br/wp-content/uploads/2022/02/Criminal-Minds-atores.jpg'; */
+    width: 90%;
+    height: 90%;
+    margin: 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-items: center;
+}
+.texto{
+    /* background-color: blueviolet; */
+    width: 50%;
+    height: 50%;
+    margin: 20px;
+    font-size: 25px;
+}
+.texto p{
+    color: #ffff;
+}
+.conteiner_personagem{
+    background-color: aliceblue;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 95%;
+}
+.conteiner_personagem p{
+    margin: 5px;
+    color: black;
+    width: 95%;
+}
+.conteiner_personagem img{
+    margin: 0px 15px 15px 15px;
+    border-radius: 5px;
+}
+.personagem{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-items: center;
+    width: 90%;
+}
+.personagem img{
+    margin: 35px;
+    width: 4vw;
+    cursor: pointer;
+    /* padding: 100px; */
+    border-radius: 45px;
+}
+.sobre{
+    background-color: rgb(71, 71, 71);
+    /* background-color:rgb(54, 5, 5); */
+    width: 95%;
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-items: center;
+}
+.sobre p{
+    margin: 10px;
+    font-size: 45px;
+    color: red;
+}
+.sobre1 {
+    width: 95%;
+    height: 80vh;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-items: center;
+}
+/* .combo-foto{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-items: center;
+} */
+.fotoM{
+    background-color: aqua;
+    width: 80%;
+    height: 90%;
+    margin: 15px 0px 15px 30px;
+}
+.texto{
+    margin: 0px 41px 0px 0px;
+    width: 55%;
+    height: 60%;
+}
+.texto p {
+    color: white;
+    font-size: 25px;
+}

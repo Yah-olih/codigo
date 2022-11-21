@@ -1,0 +1,38 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.containerHistoria{
+    /* background-color: blueviolet; */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 80%;
+    /* height: 15%; */
+    list-style: none;
+}
+.titulo a{
+    text-decoration: none;
+    color: rgb(255, 0, 0);;
+}
+.navegacaoHistoria{
+    width: 40%;
+    /* background-color: blue; */
+    justify-content: center;
+}
+.navegacaoHistoria ul{
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    justify-content: space-evenly;
+}
+.navegacaoHistoria a{
+    color: white;
+    text-decoration: none;
+}
+.navegacaoHistoria li{
+    color: white;
+}

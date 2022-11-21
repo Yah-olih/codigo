@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>index</title>
+    <link rel="stylesheet" href="css/gerais.css">
+    <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+    <!-- HEADER -->
+    <header>
+        <div class="container">
+          <div class="titulo">
+            <h1><a href="index.html">Criminal Minds</a></h1>
+          </div>
+
+          <div class="navegacao">
+            <ul>
+                <li><a href="#sobre">Sobre Nós</a></li>
+                <li><a href="#index">Inicial</a></li>
+                <li class="agora"><a href="login.html">Login</a></li>
+                <li><a href="cadastrado.html">Cadastre-se</a></li>
+            </ul>
+          </div>
+        </div>
+    </header>
+<!-- pagina -->
+<main>
+  <section>
+    <div class="caixa" id="index">
+      <div class="combo-foto">
+        <div class="foto">
+          <img style="border-bottom: 2px solid #fff;" src="img/Criminal-Minds_index.svg" width="540px">
+        </div>
+      </div>
+      <div class="texto">
+        <p>CRIMINAL MINDS gira em torno de uma equipe de elite de perfis da Unidade de Análise Comportamental do FBI (BAU) em Quantico, Virgínia. Profilers analisam as mentes criminosas mais distorcidas do país em um esforço para antecipar seus próximos movimentos antes que eles ataquem novamente. Cada membro da equipe traz sua própria área de especialização para a mesa enquanto identifica as motivações dos predadores e identifica seus gatilhos emocionais na tentativa de detê-los.</p>
+      </div>
+    </div>
+    <div class="conteiner_personagem">
+      <p>CRIMINAL MINDS , produzido pela The Mark Gordon Company em associação com a CBS Television Studios e ABC Studios , estreou em 22 de setembro de 2005 e terminou em 19 de fevereiro de 2020 na CBS .
+        <br>
+        A baixo temos os personagem principais que passaram durante essas 12 temporada
+      </p>
+      
+      <div class="personagem">
+        <img onclick="personagem_botao()" src="img/Aaron Hotchner.webp" alt="aaron">
+        <img onclick="personagem_botao()" src="img/David-Rossi.jpg" alt="david">
+        <img onclick="personagem_botao()" src="img/Space.jpg" alt="spacer">
+        <img onclick="personagem_botao()" src="img/penelopegarcia.jpg" alt="penelope">
+        <img onclick="personagem_botao()" src="img/Darick-Morgan.jpg" alt="darick">
+        <img onclick="personagem_botao()" src="img/Emilly.webp" alt="emilly">
+        <img onclick="personagem_botao()" src="img/JJ.webp" alt="jj">
+        <img onclick="personagem_botao()" src="img/Jason.jpg" alt="jason">
+        <img onclick="personagem_botao()" src="img/Kete.webp" alt="kete">
+      </div>
+      <img style="border-bottom: 2px solid #fff;" 
+      onclick="personagem_botao()"src="https://mixdeseries.com.br/wp-content/uploads/2022/02/Criminal-Minds-atores.jpg" alt="capa" width="540px">
+    </div>
+    <div class="sobre" id="sobre">
+      <p>Sobre Nós</p>
+      <div class="sobre1">
+        <div class="combo-foto">
+          <div class="fotoM"></div>
+        </div>
+        <div class="texto">
+          <p>Olá meu nome e Yara :)
+            O tema desse site foi escolhido por causa de memorias afetivas na minha infancia com a minha mae, gostava muito de assistir serie e documentarios criminais com ela quando crinça pois eram os momentos em que ficavamos justas, ate hoje continuo assistindo e apaixonada por cada serie e documentarios criminais pois todas vezes que assisto sinto paz e tranquilidade</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+    <!-- FOOTER/RODAPÉ -->
+    <footer>
+        <div class="rodape">
+          <p>Criminal Minds&copy;</p>
+        </div>
+      </footer>
+</body>
+</html>
+<script>
+  function personagem_botao(){
+    window.location.href = "login.html"
+  }
+</script>
