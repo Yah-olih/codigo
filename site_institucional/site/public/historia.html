@@ -12,7 +12,7 @@
 
 </head>
 <!-- <body  onload="validarSessao(), atualizarFeed()"> -->
-  <body>
+  <body onload="atualizarFeed()" style="background-color: #161618;">
     <header class="headerhistoria">
         <div class="containerHistoria">
           <div class="titulo">
@@ -190,18 +190,20 @@
                 <h3>FAÇA SUA VOTAÇÃO, DE QUEM VOCÊ GOSTA MAIS</h3>
 
                 <div class="voto">
-                  
+                  <form id="id_votacao" onsubmit="return publicarVotos()">
                   <div id="div_voto" class="img_votos"></div>
-
+                  <button>Enviar</button>
+                </form>
             </div>
 
 
             <h2>CAPA DAS TEMPORADAS</h2>
                 
                 <div class="carrossel">
-                  <div id="id_carrossel" class="campo_carrossel">
+                   <div id="id_carrossel" class="campo_carrossel">
                  
-                  </div>
+                  </div> 
+                  
                 </div>
 
 
@@ -304,7 +306,7 @@
         // }
     }
   }
-  // carrosselfun();
+   carrosselfun();
 
   //setInterval(function carrosselfun(){
   //  for( var i = 0; i < imagem_carrossel.length; i++){
@@ -351,7 +353,7 @@ function publicar() {
 
         if (resposta.ok) {
             window.alert("Post realizado com sucesso pelo usuario de ID: " + idUsuario + "!");
-            window.location = "/dashboard/mural.html";
+            window.location = "./historia.html";
             limparFormulario();
             finalizarAguardar();
         } else if (resposta.status == 404) {
@@ -433,7 +435,6 @@ function atualizarFeed() {
                     spanTitulo.innerHTML = "Título: <b>" + publicacao.titulo + "</b>";
                     spanNome.innerHTML = "Autor: <b>" + publicacao.nome + "</b>";
                     divDescricao.innerHTML = "Descrição: <b>" + publicacao.descricao + "</b>";
-                    btnEditar.innerHTML = "Editar";
                     btnDeletar.innerHTML = "Deletar";
 
                     divPublicacao.className = "publicacao";
@@ -474,7 +475,7 @@ function atualizarFeed() {
 }
 
 function testar() {
-    aguardar();
+    //aguardar();
 
     var formulario = new URLSearchParams(new FormData(document.getElementById("form_postagem")));
 
@@ -492,7 +493,7 @@ function testar() {
 </script>
 
 <script>
-  //VOTACAO
+ // //VOTACAO
 
   var img_votos = [
     voto = {nome:'Aaron Hotchner' ,img:'./assets/img/Aaron Hotchner.webp'},
@@ -510,7 +511,7 @@ function testar() {
     div_voto.innerHTML += `<img onclick="verificar" src="${img_votos[q].img}" alt="${img_votos[q].nome}">`
   }
 
-  function publicar() {
+  function publicarVotos() {
         var idUsuario = sessionStorage.ID_USUARIO;
 
         var corpo = {
@@ -529,7 +530,7 @@ function testar() {
 
             if (resposta.ok) {
                 window.alert("Post realizado com sucesso pelo usuario de ID: " + idUsuario + "!");
-                window.location = "/dashboard.html";
+                window.location = "/historia.html";
                 limparFormulario();
                 finalizarAguardar();
             } else if (resposta.status == 404) {
@@ -544,7 +545,7 @@ function testar() {
 
         return false;
 
-    }*/
+    }
 
   
 </script>
