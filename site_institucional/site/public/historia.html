@@ -206,8 +206,7 @@
                   
                 </div>
 
-
-
+                <!--MURAL DE AVISO -->
                 <form id="form_postagem" method="post" onsubmit="return publicar()" class="campo_comentario">
                   
                   <label>
@@ -240,15 +239,16 @@
         </div>
           
         </div>
+    </div>
 </main>
-  <!-- FOOTER/RODAPÉ 
+  <!-- FOOTER/RODAPÉ  -->
   <footer>
 
     <div class="rodape">
       <p>Criminal Minds&copy;</p>
     </div>
 
-  </footer> -->
+  </footer>
 
 
 </body>
@@ -508,15 +508,15 @@ function testar() {
   ]
 
   for(var q = 0; q < img_votos.length; q++){
-    div_voto.innerHTML += `<img onclick="verificar" src="${img_votos[q].img}" alt="${img_votos[q].nome}">`
+    div_voto.innerHTML += `<img src="${img_votos[q].img}" alt="${img_votos[q].nome}">`
   }
 
   function publicarVotos() {
         var idUsuario = sessionStorage.ID_USUARIO;
 
         var corpo = {
-            titulo: verificar.value,
-        }
+          voto: corpo.push(img_votos)
+        };
 
         fetch(`/votos/publicar/${idUsuario}`, {
             method: "post",

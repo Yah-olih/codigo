@@ -3,10 +3,12 @@
     padding: 0;
     box-sizing: border-box;
 }
+
 html{
     height: 100vh;
     scroll-behavior: smooth;
 }
+
 body {
     font-family: 'Ubuntu Mono', monospace;
     width: 100%;
@@ -14,6 +16,7 @@ body {
     display: flex;
     flex-direction: column;
   }
+
   header{
     display:flex;
     flex-direction: row;
@@ -26,6 +29,7 @@ body {
     border-bottom: 2px solid #fff;
     box-shadow: 2px 2px  #ffffff;
     position: fixed;
+    z-index: 9;
 }
 .titulo {
     padding: 5px 0;
@@ -72,6 +76,8 @@ h1 a{
 body{
 background-color: black;
 }
+
+
 /* FOOTER AQUI */
 footer {
     /* box-decoration-break: 2px 2px  #096fff; */
