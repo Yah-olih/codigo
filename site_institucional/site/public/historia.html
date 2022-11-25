@@ -292,21 +292,27 @@
     "./assets/./img/T15.webp"
   ];
 
-  
+  var intervalo = 0;
 
   function carrosselfun(){
   
-  console.log(imagem_carrossel[0])
   
     for( var i = 0; i < imagem_carrossel.length; i++){
-        id_carrossel.innerHTML = `<img src="${imagem_carrossel[i]}" >`;
-
-        // if( i != 0){
-        //   setInterval(carrosselfun,5000)
-        // }
+        id_carrossel.innerHTML = `<img src="${imagem_carrossel[i]}" display: none;  >`;
     }
+
+    id_carrossel.innerHTML = `<img src="${imagem_carrossel.length}" display: block;  >`;
+
+    intervalo++
+
+    if(intervalo >= img_votos.length){
+      intervalo = 0;
+    }
+
   }
-   carrosselfun();
+
+  setInterval(carrosselfun(), 1000);
+  
 
   //setInterval(function carrosselfun(){
   //  for( var i = 0; i < imagem_carrossel.length; i++){
