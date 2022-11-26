@@ -298,16 +298,16 @@
   
     for(var l = 0; l < imagem_carrossel.length; l++){
 
-    for( var i = 0; i < imagem_carrossel.length; i++){
-        id_carrossel.innerHTML = `<img src="${imagem_carrossel[i]}" display: none;  >`;
+      for( var i = 0; i < imagem_carrossel.length; i++){
+        id_carrossel.innerHTML = `<img src="${imagem_carrossel[l]}" display: none;  >`;
 
     }
 
     id_carrossel.innerHTML = `<img src="${imagem_carrossel[l]}" display: block;  >`;
-    intervalo++
+      intervalo++
 
     if(intervalo >= imagem_carrossel.length){
-    intervalo = 0;
+      intervalo = 0;
     }
   }
 
@@ -507,72 +507,85 @@ function testar() {
 <script>
  // //VOTACAO
 
-  var img_votos = [
-    voto = {nome:'Aaron Hotchner' ,img:'./assets/img/Aaron Hotchner.webp'},
-    voto = {nome:'David-Rossi' ,img:'./assets/img/David-Rossi.jpg'},
-    voto = {nome:'Space' ,img:'./assets/img/Space.jpg'},
-    voto = {nome:'penelopegarcia' ,img:'./assets/img/penelopegarcia.jpg'},
-    voto = {nome:'Darick-Morgan' ,img:'./assets/img/Darick-Morgan.jpg'},
-    voto = {nome:'Emilly' ,img:'./assets/img/Emilly.webp'},
-    voto = {nome:'JJ' ,img:'./assets/img/JJ.webp'},
-    voto = {nome:'Jason' ,img:'./assets/img/Jason.jpg'},
-    voto = {nome:'Kate' ,img:'./assets/img/Kete.webp'},
+  const img_votos = [
+     {nome:'Aaron Hotchner' ,img:'./assets/img/Aaron Hotchner.webp'},
+     {nome:'David-Rossi' ,img:'./assets/img/David-Rossi.jpg'},
+     {nome:'Space' ,img:'./assets/img/Space.jpg'},
+     {nome:'penelopegarcia' ,img:'./assets/img/penelopegarcia.jpg'},
+     {nome:'Darick-Morgan' ,img:'./assets/img/Darick-Morgan.jpg'},
+     {nome:'Emilly' ,img:'./assets/img/Emilly.webp'},
+     {nome:'JJ' ,img:'./assets/img/JJ.webp'},
+     {nome:'Jason' ,img:'./assets/img/Jason.jpg'},
+     {nome:'Kate' ,img:'./assets/img/Kete.webp'},
   ]
 
   for(var q = 0; q < img_votos.length; q++){
-    div_voto.innerHTML += `<img onclick="verificar()" src="${img_votos[q].img}" alt="${img_votos[q].nome}">`
+    div_voto.innerHTML += `<img onclick="verificar()" id="id_${q}" src="${img_votos[q].img}" alt="${img_votos[q].nome}">`
   }
 
-  var nome_pessonagem = "vovovo";
+  var nome_pessonagem = "";
 
   function verificar(){
-    if(img_votos.nome == 'Aaron Hotchner'){
+    var id = id_ 
 
+    for(var v = 0; v < img_votos.length; v++){
+
+    if( == 0)
+    {  
       nome_pessonagem = 'Aaron Hotchner'
       publicarVotos();
-
+      return;
     }
-    else if(img_votos.nome == 'David-Rossi')
+    if(img_votos[v] == 1)
     {
       nome_pessonagem = 'David-Rossi'
       publicarVotos();
+      return;
     }
-    else if(img_votos.nome == 'Space')
+    if(img_votos[v].nome == 'Space' && v == id)
     {
       nome_pessonagem = 'Space'
       publicarVotos();
+      return;
     }
-    else if(img_votos.nome == 'penelopegarcia')
+    if(img_votos[v].nome == 'penelopegarcia')
     {
       nome_pessonagem = 'penelopegarcia'
       publicarVotos();
+      return;
     }
-    else if(img_votos.nome == 'Darick-Morgan')
+    if(img_votos[v].nome == 'Darick-Morgan')
     {
       nome_pessonagem = 'Darick-Morgan'
       publicarVotos();
+      return;
     }
-    else if(img_votos.nome == 'Emilly')
+    if(img_votos[v].nome == 'Emilly')
     {
       nome_pessonagem = 'Emilly'
       publicarVotos();
+      return;
     }
-    else if(img_votos.nome == 'JJ')
+    if(img_votos[v].nome == 'JJ')
     {
       nome_pessonagem = 'JJ'
       publicarVotos();
+      return;
     }
-    else if(img_votos.nome == 'Jason' )
+    if(img_votos[v].nome == 'Jason' )
     {
       nome_pessonagem = 'Jason'
       publicarVotos();
+      return;
     }
-    else if(img_votos.nome == 'Kate' )
+    else if(img_votos[v].nome == 'Kate' )
     {
       nome_pessonagem ='Kate'
       publicarVotos();
+      return;
     }
   
+    }
   }
 
   function publicarVotos() {
