@@ -1,7 +1,7 @@
 var express = require("express");
 var router = express.Router();
 
-var votosController = require("../controllers/avisoController");
+var votosController = require("../controllers/votosController");
 
 router.get("/", function (req, res) {
     votosController.testar(req, res);

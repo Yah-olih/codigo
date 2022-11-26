@@ -1,8 +1,8 @@
 var votosModel = require("../models/votosModel");
 
 function testar(req, res) {
-    console.log("ENTRAMOS NO avisoController");
-    res.send("ENTRAMOS NO AVISO CONTROLLER");
+    console.log("ENTRAMOS NO votosController");
+    res.send("ENTRAMOS NO VOTOS CONTROLLER");
 }
 
 function listar(req, res) {
@@ -14,7 +14,7 @@ function listar(req, res) {
         }
     }).catch(function (erro) {
         console.log(erro);
-        console.log("Houve um erro ao buscar os avisos: ", erro.sqlMessage);
+        console.log("Houve um erro ao buscar os votos: ", erro.sqlMessage);
         res.status(500).json(erro.sqlMessage);
     });
 }
@@ -36,7 +36,7 @@ function listarPorUsuario(req, res) {
             function (erro) {
                 console.log(erro);
                 console.log(
-                    "Houve um erro ao buscar os avisos: ",
+                    "Houve um erro ao buscar os votos: ",
                     erro.sqlMessage
                 );
                 res.status(500).json(erro.sqlMessage);
@@ -59,25 +59,22 @@ function pesquisarDescricao(req, res) {
         ).catch(
             function (erro) {
                 console.log(erro);
-                console.log("Houve um erro ao buscar os avisos: ", erro.sqlMessage);
+                console.log("Houve um erro ao buscar os votoss: ", erro.sqlMessage);
                 res.status(500).json(erro.sqlMessage);
             }
         );
 }
 
 function publicar(req, res) {
-    var titulo = req.body.titulo;
-    var descricao = req.body.descricao;
+    var nome = req.body.nome;
     var idUsuario = req.params.idUsuario;
 
-    if (titulo == undefined) {
-        res.status(400).send("O título está indefinido!");
-    } else if (descricao == undefined) {
-        res.status(400).send("A descrição está indefinido!");
+    if (nome == undefined) {
+        res.status(400).send("O nome está indefinido!");
     } else if (idUsuario == undefined) {
         res.status(403).send("O id do usuário está indefinido!");
     } else {
-        votosModel.publicar(titulo, descricao, idUsuario)
+        votosModel.publicar(nome, idUsuario)
             .then(
                 function (resultado) {
                     res.json(resultado);
@@ -97,7 +94,7 @@ function editar(req, res) {
     var novaDescricao = req.body.descricao;
     var idvotos = req.params.idvotos;
 
-    avisoModel.editar(novaDescricao, idvotos)
+    votosModel.editar(novaDescricao, idvotos)
         .then(
             function (resultado) {
                 res.json(resultado);

@@ -296,22 +296,28 @@
 
   function carrosselfun(){
   
-  
+    for(var l = 0; l < imagem_carrossel.length; l++){
+
     for( var i = 0; i < imagem_carrossel.length; i++){
         id_carrossel.innerHTML = `<img src="${imagem_carrossel[i]}" display: none;  >`;
+
     }
 
-    id_carrossel.innerHTML = `<img src="${imagem_carrossel.length}" display: block;  >`;
-
+    id_carrossel.innerHTML = `<img src="${imagem_carrossel[l]}" display: block;  >`;
     intervalo++
 
-    if(intervalo >= img_votos.length){
-      intervalo = 0;
+    if(intervalo >= imagem_carrossel.length){
+    intervalo = 0;
     }
+  }
+
+   // id_carrossel.innerHTML = `<img src="${imagem_carrossel.length}" display: block;  >`;
+
+   
 
   }
 
-  setInterval(carrosselfun(), 1000);
+  setInterval(carrosselfun(), 4000);
   
 
   //setInterval(function carrosselfun(){
@@ -514,14 +520,66 @@ function testar() {
   ]
 
   for(var q = 0; q < img_votos.length; q++){
-    div_voto.innerHTML += `<img src="${img_votos[q].img}" alt="${img_votos[q].nome}">`
+    div_voto.innerHTML += `<img onclick="verificar()" src="${img_votos[q].img}" alt="${img_votos[q].nome}">`
+  }
+
+  var nome_pessonagem = "vovovo";
+
+  function verificar(){
+    if(img_votos.nome == 'Aaron Hotchner'){
+
+      nome_pessonagem = 'Aaron Hotchner'
+      publicarVotos();
+
+    }
+    else if(img_votos.nome == 'David-Rossi')
+    {
+      nome_pessonagem = 'David-Rossi'
+      publicarVotos();
+    }
+    else if(img_votos.nome == 'Space')
+    {
+      nome_pessonagem = 'Space'
+      publicarVotos();
+    }
+    else if(img_votos.nome == 'penelopegarcia')
+    {
+      nome_pessonagem = 'penelopegarcia'
+      publicarVotos();
+    }
+    else if(img_votos.nome == 'Darick-Morgan')
+    {
+      nome_pessonagem = 'Darick-Morgan'
+      publicarVotos();
+    }
+    else if(img_votos.nome == 'Emilly')
+    {
+      nome_pessonagem = 'Emilly'
+      publicarVotos();
+    }
+    else if(img_votos.nome == 'JJ')
+    {
+      nome_pessonagem = 'JJ'
+      publicarVotos();
+    }
+    else if(img_votos.nome == 'Jason' )
+    {
+      nome_pessonagem = 'Jason'
+      publicarVotos();
+    }
+    else if(img_votos.nome == 'Kate' )
+    {
+      nome_pessonagem ='Kate'
+      publicarVotos();
+    }
+  
   }
 
   function publicarVotos() {
         var idUsuario = sessionStorage.ID_USUARIO;
 
         var corpo = {
-          voto: corpo.push(img_votos)
+          nome: nome_pessonagem
         };
 
         fetch(`/votos/publicar/${idUsuario}`, {
@@ -542,7 +600,7 @@ function testar() {
             } else if (resposta.status == 404) {
                 window.alert("Deu 404!");
             } else {
-                throw ("Houve um erro ao tentar realizar a postagem! Código da resposta: " + resposta.status);
+                throw ("Houve um erro ao tentar realizar o voto! Código da resposta: " + resposta.status);
             }
         }).catch(function (resposta) {
             console.log(`#ERRO: ${resposta}`);
