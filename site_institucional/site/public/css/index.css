@@ -113,7 +113,7 @@ section{
 } */
 .fotoM
 {
-    background-color: rgba(224, 253, 253, 0.222);
+    background-color: rgba(0, 0, 0, 0.222);
     width: 80%;
     height: 91%;
     margin: 15px 0px 15px 30px;
@@ -124,7 +124,7 @@ section{
     
 }
 .fotoM img{
-    width: 39%;
+    width: 64%;
 }
 
 .texto

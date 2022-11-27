@@ -67,14 +67,18 @@ function pesquisarDescricao(req, res) {
 
 function publicar(req, res) {
     var nome = req.body.nome;
+    var numero =  req.body.numero
     var idUsuario = req.params.idUsuario;
 
     if (nome == undefined) {
         res.status(400).send("O nome está indefinido!");
-    } else if (idUsuario == undefined) {
+    } else if(numero == undefined){
+        res.status(400).send("O nome está indefinido!");
+    } 
+    else if (idUsuario == undefined) {
         res.status(403).send("O id do usuário está indefinido!");
     } else {
-        votosModel.publicar(nome, idUsuario)
+        votosModel.publicar(nome, numero, idUsuario)
             .then(
                 function (resultado) {
                     res.json(resultado);

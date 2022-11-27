@@ -190,16 +190,20 @@
                 <h3>FAÇA SUA VOTAÇÃO, DE QUEM VOCÊ GOSTA MAIS</h3>
 
                 <div class="voto">
+
                   <form id="id_votacao" onsubmit="return publicarVotos()">
                   <div id="div_voto" class="img_votos"></div>
                   <button>Enviar</button>
                 </form>
+                  <div id="numero_votos" class="numero_votos">
+
+                  </div>
+                </div>
             </div>
 
 
-            <h2>CAPA DAS TEMPORADAS</h2>
-                
                 <div class="carrossel">
+                  <h2>CAPA DAS TEMPORADAS</h2>
                    <div id="id_carrossel" class="campo_carrossel">
                  
                   </div> 
@@ -207,6 +211,7 @@
                 </div>
 
                 <!--MURAL DE AVISO -->
+              
                 <form id="form_postagem" method="post" onsubmit="return publicar()" class="campo_comentario">
                   
                   <label>
@@ -235,8 +240,7 @@
                     <div id="feed_container" class="feed-container">
                     </div>
                 </div>
-
-        </div>
+              </div>
           
         </div>
     </div>
@@ -443,10 +447,10 @@ function atualizarFeed() {
                     var btnDeletar = document.createElement("button");
 
 
-                    spanID.innerHTML = "ID: <b>" + publicacao.idAviso + "</b>";
-                    spanTitulo.innerHTML = "Título: <b>" + publicacao.titulo + "</b>";
-                    spanNome.innerHTML = "Autor: <b>" + publicacao.nome + "</b>";
-                    divDescricao.innerHTML = "Descrição: <b>" + publicacao.descricao + "</b>";
+                    spanID.innerHTML = "ID: <b> " + publicacao.idAviso + " </b>";
+                    spanTitulo.innerHTML = "Título: <b> " + publicacao.titulo + " </b>";
+                    spanNome.innerHTML = "Autor: <b> " + publicacao.nome + " </b>";
+                    divDescricao.innerHTML = "Descrição: <b> " + publicacao.descricao + " </b>";
                     btnDeletar.innerHTML = "Deletar";
 
                     divPublicacao.className = "publicacao";
@@ -457,9 +461,9 @@ function atualizarFeed() {
 
                     divButtons.className = "div-buttons"
 
-                    btnEditar.className = "publicacao-btn-editar"
-                    btnEditar.id = "btnEditar" + publicacao.idAviso;
-                    btnEditar.setAttribute("onclick", `editar(${publicacao.idAviso})`);
+                    //btnEditar.className = "publicacao-btn-editar"
+                    //btnEditar.id = "btnEditar" + publicacao.idAviso;
+                    //btnEditar.setAttribute("onclick", `editar(${publicacao.idAviso})`);
 
                     btnDeletar.className = "publicacao-btn-editar"
                     btnDeletar.id = "btnDeletar" + publicacao.idAviso;
@@ -470,7 +474,7 @@ function atualizarFeed() {
                     divPublicacao.appendChild(spanTitulo);
                     divPublicacao.appendChild(divDescricao);
                     divPublicacao.appendChild(divButtons);
-                    divButtons.appendChild(btnEditar);
+                    //divButtons.appendChild(btnEditar);
                     divButtons.appendChild(btnDeletar);
                     feed.appendChild(divPublicacao);
                 }
@@ -508,91 +512,75 @@ function testar() {
  // //VOTACAO
 
   const img_votos = [
-     {nome:'Aaron Hotchner' ,img:'./assets/img/Aaron Hotchner.webp'},
-     {nome:'David-Rossi' ,img:'./assets/img/David-Rossi.jpg'},
-     {nome:'Space' ,img:'./assets/img/Space.jpg'},
-     {nome:'penelopegarcia' ,img:'./assets/img/penelopegarcia.jpg'},
-     {nome:'Darick-Morgan' ,img:'./assets/img/Darick-Morgan.jpg'},
-     {nome:'Emilly' ,img:'./assets/img/Emilly.webp'},
-     {nome:'JJ' ,img:'./assets/img/JJ.webp'},
-     {nome:'Jason' ,img:'./assets/img/Jason.jpg'},
-     {nome:'Kate' ,img:'./assets/img/Kete.webp'},
+     {id: 'um', nome:'Aaron Hotchner' ,img:'./assets/img/Aaron Hotchner.webp'},
+     {id: 'dois', nome:'David-Rossi' ,img:'./assets/img/David-Rossi.jpg'},
+     {id: 'tres', nome:'Space' ,img:'./assets/img/Space.jpg'},
+     {id: 'quatro', nome:'penelopegarcia' ,img:'./assets/img/penelopegarcia.jpg'},
+     {id: 'cinco', nome:'Darick-Morgan' ,img:'./assets/img/Darick-Morgan.jpg'},
+     {id: 'seis', nome:'Emilly' ,img:'./assets/img/Emilly.webp'},
+     {id: 'sete', nome:'JJ' ,img:'./assets/img/JJ.webp'},
+     {id: 'oito', nome:'Jason' ,img:'./assets/img/Jason.jpg'},
+     {id: 'nove', nome:'Kate' ,img:'./assets/img/Kete.webp'},
   ]
 
   for(var q = 0; q < img_votos.length; q++){
-    div_voto.innerHTML += `<img onclick="verificar()" id="id_${q}" src="${img_votos[q].img}" alt="${img_votos[q].nome}">`
+    div_voto.innerHTML += `<img onclick="verificar${img_votos[q].id}()" src="${img_votos[q].img}" alt="${img_votos[q].nome}">`
   }
 
   var nome_pessonagem = "";
+  var quantidade = "";
 
-  function verificar(){
-    var id = id_ 
 
-    for(var v = 0; v < img_votos.length; v++){
-
-    if( == 0)
-    {  
-      nome_pessonagem = 'Aaron Hotchner'
-      publicarVotos();
-      return;
-    }
-    if(img_votos[v] == 1)
-    {
-      nome_pessonagem = 'David-Rossi'
-      publicarVotos();
-      return;
-    }
-    if(img_votos[v].nome == 'Space' && v == id)
-    {
-      nome_pessonagem = 'Space'
-      publicarVotos();
-      return;
-    }
-    if(img_votos[v].nome == 'penelopegarcia')
-    {
-      nome_pessonagem = 'penelopegarcia'
-      publicarVotos();
-      return;
-    }
-    if(img_votos[v].nome == 'Darick-Morgan')
-    {
-      nome_pessonagem = 'Darick-Morgan'
-      publicarVotos();
-      return;
-    }
-    if(img_votos[v].nome == 'Emilly')
-    {
-      nome_pessonagem = 'Emilly'
-      publicarVotos();
-      return;
-    }
-    if(img_votos[v].nome == 'JJ')
-    {
-      nome_pessonagem = 'JJ'
-      publicarVotos();
-      return;
-    }
-    if(img_votos[v].nome == 'Jason' )
-    {
-      nome_pessonagem = 'Jason'
-      publicarVotos();
-      return;
-    }
-    else if(img_votos[v].nome == 'Kate' )
-    {
-      nome_pessonagem ='Kate'
-      publicarVotos();
-      return;
-    }
-  
-    }
+  function verificarum(){
+    nome_pessonagem = 'Aaron Hotchner'
+    quantidade = '1';
+  }
+  function verificardois(){
+    nome_pessonagem = 'David-Rossi'
+    quantidade = '1';
+  }
+  function verificartres(){
+    nome_pessonagem = 'Space'
+    quantidade = '1';
+  }
+  function verificarquatro(){
+    nome_pessonagem = 'penelopegarcia'
+    quantidade = '1';
+  }
+  function verificarcinco(){
+    nome_pessonagem = 'Darick-Morgan'
+    quantidade = '1';
+  }
+  function verificarseis(){
+    nome_pessonagem = 'Emilly'
+    quantidade = '1';
+  }
+  function verificarsete(){
+    nome_pessonagem = 'JJ'
+    quantidade = '1';
+  }
+  function verificaroito(){
+    nome_pessonagem = 'Jason'
+    quantidade = '1';
+  }
+  function verificarnove(){
+    nome_pessonagem ='Kate'
+    quantidade = '1';
   }
 
+  
   function publicarVotos() {
         var idUsuario = sessionStorage.ID_USUARIO;
 
+        if(nome_pessonagem == ""){
+          alert(`escolha um personagem`)
+          return false;
+        }
+        else{
+
         var corpo = {
-          nome: nome_pessonagem
+          nome: nome_pessonagem,
+          numero: quantidade
         };
 
         fetch(`/votos/publicar/${idUsuario}`, {
@@ -621,8 +609,24 @@ function testar() {
         });
 
         return false;
+      }
 
     }
+
+    function testar() {
+    //aguardar();
+
+    var formulario = new URLSearchParams(new FormData(document.getElementById("id_votacao")));
+
+    var divResultado = document.getElementById("div_numeo");
+
+    divResultado.appendChild(document.createTextNode(formulario.get("numero")));
+    divResultado.innerHTML = formulario.get("numero");
+
+    //finalizarAguardar();
+
+    return false;
+}
 
   
 </script>
