@@ -16,11 +16,12 @@ select * from usuario;
 create table votos (
 idvotos int primary key auto_increment,
 nome varchar(45),
+numero varchar(45),
 fk_usuario int,
 foreign key (fk_usuario) references usuario(idUsuario));
 
-insert into votos (nome) values
-('voto1');
+insert into votos (nome, numero ,fk_usuario) values
+('voto1','1',1);
 
 select * from votos;
 
@@ -35,3 +36,5 @@ insert into aviso (titulo, descricao, fk_usuario) values
 ('titulo', 'comentario', 1);
 
 select * from aviso;
+
+select sum(numero) as soma from votos group by nome;
