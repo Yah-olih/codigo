@@ -133,7 +133,8 @@ main{
     background-color: red;
     width: 10%;
     border-radius: 3px;
-    margin: 2px 0px 2px 490px;
+    margin: 10px 0px 2px 490px;
+    cursor: pointer;
 
 }
 
@@ -151,6 +152,7 @@ main{
     width: 6%;
     padding: 3px;
     border-radius: 30px;
+    cursor: pointer;
 }
 .mural_votos{
     color: black;
@@ -162,8 +164,9 @@ main{
     width: 100%;
     display: flex;
     flex-direction: row;
+    justify-items: center;
     color: black;
-    margin: 0px 0px 5px 0px;
+   
 }
 .publicacao-titulo{
     background-color: #000000;
@@ -176,7 +179,7 @@ main{
 
 /*CARROSSEL*/
 
-.carrossel h2{
+.container2 h2{
     border-radius: 2px; 
     font-size: 45px;
     color: red;
@@ -191,6 +194,7 @@ main{
     margin: auto;
     margin: 10px;
     width: 100%;
+    padding: 15%;
     background-color: rgb(8, 8, 8);
     
 }
@@ -198,6 +202,11 @@ main{
 .campo_carrossel 
 {
     display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-items: center;
+    width:60%;
+    position: absolute;
     transition: transform 0.5s ease-in-out;
     transform: translateX(0);
 }
@@ -205,11 +214,12 @@ main{
 .campo_carrossel img
 {
     object-fit: cover;
-    width: 100%;
+    width: 30%;
     margin: 10px;
     
 }
 
+/* COMENTARIO */
 .campo_comentario
 {
     width: 80%;
@@ -247,6 +257,7 @@ main{
     color: white;
     padding: 5px;
     border-radius: 10px;
+    cursor: pointer;
 }
 
 .dimencao h1

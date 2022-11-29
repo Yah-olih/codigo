@@ -14,7 +14,7 @@
 </head>
 <!-- <body  onload="validarSessao(), atualizarFeed()"> -->
 
-<body onload="atualizarFeedvotos(), atualizarFeedcomentario()" style="background-color: #161618;">
+<body onload="atualizarFeedcomentario(), atualizarFeedvotos()" style="background-color: #161618;">
   <header class="headerhistoria">
     <div class="containerHistoria">
       <div class="titulo">
@@ -26,7 +26,7 @@
 
           <li><a href="#serie">Serie</a></li>
           <li><a href="#personagem">Personagem</a></li>
-          <li><a href="#id_votacao">Votação</a></li>
+          <li><a href="#votacao">Votação</a></li>
           <li>|</li>
           <li><a href="login.html">Login</a></li>
           <li><a href="index.html">Sair</a></li>
@@ -191,7 +191,7 @@
           <div class="campo">
 
             <div class="foto">
-              <img src="./assets/img/Kete.webp" alt="kate">
+              <img src="./assets/img/Kate.webp" alt="kate">
             </div>
 
             <div class="descricao">
@@ -205,7 +205,7 @@
         </div>
 
 
-        <div class="conteinerVotacao" style="border-bottom: 2px solid #fff;" id="id_votacao">
+        <div id= "votacao" class="conteinerVotacao" style="border-bottom: 2px solid #fff;" id="id_votacao">
 
           <h3>FAÇA SUA VOTAÇÃO, DE QUEM VOCÊ GOSTA MAIS</h3>
 
@@ -226,14 +226,15 @@
         </div>
       </div>
 
-
-      <div class="carrossel">
-        <h2>CAPA DAS TEMPORADAS</h2>
+      <h2>CAPA DAS TEMPORADAS</h2>
+      <div class="carrossel" id="serie">
+        
         <div id="id_carrossel" class="campo_carrossel">
 
         </div>
-
       </div>
+
+      
 
       <!--MURAL DE AVISO -->
 
@@ -267,8 +268,7 @@
       </div>
     </div>
 
-    </div>
-    </div>
+    
   </main>
   <!-- FOOTER/RODAPÉ  -->
   <footer>
@@ -326,36 +326,33 @@
 
   function carrosselfun() {
 
-    for (var index = 0; index < imagem_carrossel.length; index++) {
+    id_carrossel.innerHTML = `<img src="${imagem_carrossel[intervalo]}">`;
+      intervalo ++
 
-      id_carrossel.innerHTML = `<img src="${imagem_carrossel[index].classList.remove('ativar')}">`;
-      
-    }
-
-    imagem_carrossel[intervalo].classList.add('ativar');
-    intervalo++
-
-    if(intervalo >= imagem_carrossel.length){
+    if(intervalo > imagem_carrossel.length){
       intervalo = 0;
     }
-
+    console.log(intervalo);  
+      //imagem_carrossel.style.transform = `translateX(${-intervalo*200}px)`;
   }
 
-  setInterval(carrosselfun(), 4000);
+  setInterval(carrosselfun, 1000);
 
 
-  //setInterval(function carrosselfun(){
-  //  for( var i = 0; i < imagem_carrossel.length; i++){
-//
-  //  id_carrossel.innerHTML = `<img src="${imagem_carrossel[i]}" >`;
-  //  }
-  //},5000)
-  // var i = 0
 
-  // while(i < imagem_carrossel.length){
 
-  //   id_carrossel.innerHTML = `<img src="${imagem_carrossel[i]}" >`;
-  //    setInterval(i++,5000) }
+   // for (var index = 0; index < imagem_carrossel.length; index++) {
+
+    //   id_carrossel.innerHTML = `<img src="${imagem_carrossel[index].classList.remove('ativar')}">`;
+      
+    // }
+
+    // imagem_carrossel[intervalo].classList.add('ativar');
+    // intervalo++
+
+    // if(intervalo >= imagem_carrossel.length){
+    //   intervalo = 0;
+    // }
 
 </script>
 
@@ -399,6 +396,7 @@
       }
     }).catch(function (resposta) {
       console.log(`#ERRO: ${resposta}`);
+      alert('você ja fez um comentario, se quiser fazer outro, delete o seu')
       //finalizarAguardar();
     });
 
@@ -467,10 +465,10 @@
             var btnDeletar = document.createElement("button");
 
 
-            spanID.innerHTML = "ID: <b> " + publicacao.idAviso + "</b>";
-            spanTitulo.innerHTML = "Título: <b> " + publicacao.titulo + "</b>";
-            spanNome.innerHTML = "Autor: <b> " + publicacao.nome + "</b>";
-            divDescricao.innerHTML = "Descrição: <b> " + publicacao.descricao + "</b>";
+            spanID.innerHTML = "ID: <b> " + publicacao.idAviso + " </b> ";
+            spanTitulo.innerHTML = "Título: <b> " + publicacao.titulo + " </b> ";
+            spanNome.innerHTML = "Autor: <b> " + publicacao.nome + " </b> ";
+            divDescricao.innerHTML = "Descrição: <b> " + publicacao.descricao + "</b> ";
             btnDeletar.innerHTML = "Deletar";
 
             divPublicacao.className = "publicacao";
@@ -536,7 +534,7 @@
     { id: 'seis', nome: 'Emilly', img: './assets/img/Emilly.webp' },
     { id: 'sete', nome: 'JJ', img: './assets/img/JJ.webp' },
     { id: 'oito', nome: 'Jason', img: './assets/img/Jason.jpg' },
-    { id: 'nove', nome: 'Kate', img: './assets/img/Kete.webp' },
+    { id: 'nove', nome: 'Kate', img: './assets/img/Kate.webp' }
   ]
 
   for (var q = 0; q < img_votos.length; q++) {
@@ -560,7 +558,7 @@
     quantidade = '1';
   }
   function verificarquatro() {
-    nome_pessonagem = 'penelopegarcia'
+    nome_pessonagem = 'Penelope Garcia'
     quantidade = '1';
   }
   function verificarcinco() {
@@ -621,6 +619,7 @@
         }
       }).catch(function (resposta) {
         console.log(`#ERRO: ${resposta}`);
+        alert('Você ja fez uma votação, não e possivel fazer outra')
         //finalizarAguardar();
       });
 
@@ -654,8 +653,8 @@
             // criando e manipulando elementos do HTML via JavaScript
             var divPublicacao = document.createElement("div");
             var spanTitulo = document.createElement("span");
-            var porcentagem = publicacao.soma / 9;
-            spanTitulo.innerHTML = img_votos[i].nome + "<br>" + porcentagem.toFixed(2) + "%";
+            var porcentagem = publicacao.soma /9;
+            spanTitulo.innerHTML = img_votos[i].nome + "<br>" + porcentagem.toFixed(1) + "%";
             
             spanTitulo.className = "publicacao-titulo";
             divPublicacao.appendChild(spanTitulo);

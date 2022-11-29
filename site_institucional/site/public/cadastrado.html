@@ -77,29 +77,29 @@
         const ConfirmacaoSenha = input_senha_confirmacao.value;
 
         if(emailVar == "" || !emailVar.includes("@") || !emailVar.endsWith(".com")){
-            alert(`informe um email valido`);
+            alert(`informe um email valido, que contenha '@' e '.com'`);
 
             //finalizarAguardar();
-            //return false;
+            return false;
 
         }else if((senhaVar != ConfirmacaoSenha) || senhaVar == "" || ConfirmacaoSenha == ""){
            // cardErro.style.display = "block"
             alert(`informe uma senha valida`);
 
             //finalizarAguardar();
-            //return false;
+            return false;
 
         }else if(senhaVar.length <=7 || ConfirmacaoSenha.length <=7 ){
             //cardErro.style.display = "block"
-            alert(`informe uma snha que contenha no minimo 8 caracteres`);
+            alert(`informe uma senha que contenha no minimo 8 caracteres`);
 
             //finalizarAguardar();
-            //return false;
+            return false;
 
         }else{
             //setInterval(sumirMensagem, 5000)
             window.location.href = "login.html"
-        }
+        
         // Enviando o valor da nova input
         fetch("/usuarios/cadastrar", {
             method: "POST",
@@ -133,13 +133,12 @@
             }
         }).catch(function (resposta) {
             console.log(`#ERRO: ${resposta}`);
-            finalizarAguardar();
+            //finalizarAguardar();
         });
 
         return false;
     }
+}
         
-        function sumirMensagem() {
-            cardErro.style.display = "none"
-        }
+    
 </script>
