@@ -116,7 +116,7 @@ section{
 {
     background-color: rgba(0, 0, 0, 0.222);
     width: 80%;
-    height: 91%;
+    height: 100%;
     margin: 15px 0px 15px 30px;
     display: flex;
     flex-direction: column;
@@ -125,7 +125,7 @@ section{
     
 }
 .fotoM img{
-    width: 64%;
+    width: 40%;
 }
 
 .texto
