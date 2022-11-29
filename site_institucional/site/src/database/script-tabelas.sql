@@ -1,6 +1,6 @@
 create database criminalMids;
 use criminalMids;
--- drop database criminalmids;
+-- drop database criminalMids;
 
 CREATE TABLE usuario (
   idUsuario INT PRIMARY KEY auto_increment,
@@ -48,7 +48,7 @@ create table votos (
 idvotos int primary key auto_increment,
 nome varchar(45),
 numero varchar(45),
-fk_usuario int,
+fk_usuario int not null unique,
 foreign key (fk_usuario) references usuario(idUsuario));
 
 insert into votos (nome, numero ,fk_usuario) values

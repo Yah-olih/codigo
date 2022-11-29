@@ -325,22 +325,6 @@
 
   setInterval(carrosselfun, 4000);
 
-
-
-
-   // for (var index = 0; index < imagem_carrossel.length; index++) {
-
-    //   id_carrossel.innerHTML = `<img src="${imagem_carrossel[index].classList.remove('ativar')}">`;
-      
-    // }
-
-    // imagem_carrossel[intervalo].classList.add('ativar');
-    // intervalo++
-
-    // if(intervalo >= imagem_carrossel.length){
-    //   intervalo = 0;
-    // }
-
 </script>
 
 
@@ -383,7 +367,6 @@
       }
     }).catch(function (resposta) {
       console.log(`#ERRO: ${resposta}`);
-      alert('você ja fez um comentario, se quiser fazer outro, delete o seu')
       //finalizarAguardar();
     });
 
@@ -602,11 +585,11 @@
         } else if (resposta.status == 404) {
           window.alert("Deu 404!");
         } else {
+          alert(`você ja realizou um voto, nao pode votar novamente`)
           throw ("Houve um erro ao tentar realizar o voto! Código da resposta: " + resposta.status);
         }
       }).catch(function (resposta) {
         console.log(`#ERRO: ${resposta}`);
-        alert('Você ja fez uma votação, não e possivel fazer outra')
         //finalizarAguardar();
       });
 
