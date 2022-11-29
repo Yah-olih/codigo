@@ -35,22 +35,28 @@ section{
     /* background-color: rgba(0, 255, 255, 0.582); */
     /* background-image: 'https://mixdeseries.com.br/wp-content/uploads/2022/02/Criminal-Minds-atores.jpg'; */
     width: 90%;
-    height: 90%;
-    margin: 60px;
+   
+    margin: 30px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-items: center;
+    background-color: aqua;
 }
 .texto{
     /* background-color: blueviolet; */
-    width: 50%;
-    height: 50%;
-    margin: 20px;
+    width: 70%;
+    margin: 40px 20px 10px 20px;
     font-size: 25px;
+    display: flex;
+    align-items: center;
+    justify-items: center;
+
 }
 .texto p{
+    
     color: #ffff;
+    width: 100%;
 }
 .conteiner_personagem{
     background-color: aliceblue;

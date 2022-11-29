@@ -313,17 +313,19 @@
 
   function carrosselfun() {
 
-    id_carrossel.innerHTML = `<img src="${imagem_carrossel[intervalo]}">`;
-      intervalo ++
-
-    if(intervalo > imagem_carrossel.length){
+    
+    if(intervalo >= imagem_carrossel.length){
       intervalo = 0;
-    }
+    } 
+    
+    id_carrossel.innerHTML = `<img src="${imagem_carrossel[intervalo]}">`;
+    intervalo ++
+
     console.log(intervalo);  
       //imagem_carrossel.style.transform = `translateX(${-intervalo*200}px)`;
   }
 
-  setInterval(carrosselfun, 4000);
+  setInterval(carrosselfun, 500);
 
 </script>
 
