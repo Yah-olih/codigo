@@ -74,21 +74,16 @@
     var senhaVar = input_senha.value;
 
     if(emailVar == "" || !emailVar.includes("@") || !emailVar.endsWith(".com")) {
-      // cardErro.style.display = "block"
       alert(`ensira um email valido`)
 
       finalizarAguardar();
       return false;
 
     }
-    else if(senhaVar == "" || senhaVar.length <= 8){
+    else if(senhaVar == "" || senhaVar.length <= 7){
       alert(`ìnforme uma senha valida`)
       return false;
     }
-   // else 
-   // {
-   //   window.location = "dashboard.html";
-   // }
     
    console.log("FORM LOGIN: ", emailVar);
         console.log("FORM SENHA: ", senhaVar);
@@ -118,17 +113,15 @@
 
                     setTimeout(function () {
                         window.location = "./historia.html";
-                    }, 1000); // apenas para exibir o loading
+                    }, 1000); 
 
                 });
 
             } else {
-                //alert("email ou senha invalidos")
                 console.log("Houve um erro ao tentar realizar o login!");
 
                 resposta.text().then(texto => {
                     console.error(texto);
-                    //finalizarAguardar(texto);
                 });
             }
 
